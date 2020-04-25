@@ -3,7 +3,7 @@ import React from 'react'
 
 
 export default props =>{
-    props.load()
+
     const renderRows = () => {
         const list = props.list || []// se vier na constante coloca no props se nao na []
         return list.map(wedo =>(

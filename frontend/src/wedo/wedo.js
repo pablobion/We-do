@@ -6,6 +6,7 @@ import axios from 'axios'
 
 const URL = 'http://localhost:3333/api/wedos'
 
+
 export default class Wedo extends Component {
 
     constructor(props){
@@ -17,10 +18,8 @@ export default class Wedo extends Component {
         this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
         this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
         this.handleSearch = this.handleSearch.bind(this)
-        this.refresh = this.refresh.bind(this)
+        this.refresh()
         this.handleClear = this.handleClear.bind(this)
-        this.load = this.load.bind(this)
-
     }
 
     refresh(description = ''){
@@ -63,11 +62,6 @@ export default class Wedo extends Component {
        this.refresh()
     }
 
-    load(){
-        axios.get(`${URL}?sort-=createAt`)
-            .then(resp => this.setState({...this.state, list: resp.data}))
-    }
-
     render(){
         return (
             <div>
@@ -82,9 +76,6 @@ export default class Wedo extends Component {
                     handleMarkAsDone={this.handleMarkAsDone}
                     handleMarkAsPending={this.handleMarkAsPending}
                     handleRemove={this.handleRemove}
-                    load={this.load}
-
-                    
                 />
             </div>
         )

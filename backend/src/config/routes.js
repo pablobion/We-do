@@ -8,9 +8,12 @@ module.exports = (server) => {
     const router = express.Router()
     server.use('/api', router)
 
-    //  WEdo Routes
+    //  Routes
     const wedoService = require('../api/wedo/wedoService')
-    wedoService.register(router, '/wedos')
+    const cardsService = require('../api/cards/cardsService')
 
+
+    wedoService.register(router, '/wedos')
+    cardsService.register(router, '/cards')
 
 }
