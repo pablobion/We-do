@@ -3,6 +3,7 @@ import axios from 'axios'
 import Menu from './menu.js'
 import Painel from './painel.js'
 
+
 const URL = 'http://localhost:3333/api/cards/'
 
 
@@ -12,13 +13,11 @@ export default class Cards extends Component {
         super(props)
         this.zoomin = this.zoomin.bind(this)
         this.zoomout = this.zoomout.bind(this)
-        this.handleAdd = this.handleAdd.bind(this)
 
         this.state = {
             width: 200,
             height: 200,
             fontSize: 25,
-            title: 'oi',
             list: [],
         }
 
@@ -28,7 +27,6 @@ export default class Cards extends Component {
 
     zoomin(){
         this.setState({width: 200, height: 200, fontSize: 25})
-
     }
 
     zoomout(){
@@ -45,10 +43,6 @@ export default class Cards extends Component {
         }else if(size <= 60){
             return false
         }
-    }
-
-    handleAdd(){
-        const title = this.state.title
     }
 
     render(){

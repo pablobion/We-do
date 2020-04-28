@@ -1,25 +1,18 @@
 import React from 'react'
+import { Navbar, Nav } from 'react-bootstrap';
 
 export default props =>(
-
-    <nav className='navbar navbar-inverse bg-inverse'>
-        <div className='container'>
-            <div className='navbar-header'>
-                <a className='navbar-brand' href='/'>
-                    <i className='fa fa-calendar-check-o'> WedoApp</i>
-                </a>
-            </div>
-        
-
-            <div id='navbar' className='navbar-collapse collapse'>
-                <ul className='nav navbar-nav'>
-                    <li><a href='/cards'>Cards</a></li>
-                    <li><a href='/wedos'>Wedos</a></li>
-                    <li><a href='/about'>Sobre</a></li>              
-                </ul>
-            </div>
-        </div>
-
-    </nav>
+  <div className='menu'>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="/"><strong>We-do!</strong></Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="mr-auto">
+        <Nav.Link href="/cards">Cards</Nav.Link>
+        <Nav.Link href="/about">About</Nav.Link>
+      </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  </div>
 )
 

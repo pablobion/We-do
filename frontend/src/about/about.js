@@ -1,10 +1,7 @@
 import React from 'react'
-import PageHeader from '../template/pageHeader'
 
 export default props => (
     <div>
-
-    <PageHeader name='Sobre' small='Nós'></PageHeader>
-    <h2>Nossa História</h2>
+        <h6>Aplicação desenvolvida através do reactJS e mongodb  </h6>
     </div>
 )

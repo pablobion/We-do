@@ -1,4 +1,5 @@
 import React from 'react'
+import './wedoForm.css'
 
 export default props =>{
 
@@ -12,9 +13,10 @@ export default props =>{
     <div role='form' className='todoForm'>
      <div className='col-xs-12 col-sm-9 col-mid-10'>
             <input id='description' className='form-control' placeholder='Adicione uma Tarefa'
-            value={props.description}
-            onKeyUp={keyHandler}
-            onChange={props.handleChange}
+              value={props.description}
+              id={props.idcard}
+              onKeyUp={keyHandler}
+              onChange={props.handleChange}
             ></input>
      </div>
 

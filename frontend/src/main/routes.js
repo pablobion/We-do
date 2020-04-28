@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import Wedo from '../wedo/wedo'
 import About from '../about/about'
 import Cards from '../cards/cards'
-import PageCard from '../cards/CardPage'
+import CardPage from '../cards/CardPage/CardPage.jsx'
+import CreateCard from '../cards/CreateCard/CreateCard'
 
 
 export default props => (
@@ -15,15 +16,13 @@ export default props => (
             <Route path='/cards' component={Cards}></Route>
             <Route path='/wedos' component={Wedo}></Route>
             <Route path='/about' component={About}></Route>
+            <Route path='/createcard' component={CreateCard}></Route>
             <Route
-                path='/pagecard' render={(props) => <PageCard {...props} 
-                
+                path='/cardpage' render={(props) => <CardPage {...props} 
                 name={props.history.location.state.name} 
-                id={props.history.location.state.id} 
-                
+                id={props.history.location.state.id}    
                 />}
             />
-
         </Switch>
     </BrowserRouter>
    

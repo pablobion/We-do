@@ -12,7 +12,6 @@ export default props => {
             <p>{props.title}</p>
         </div>
     </div>
-     
     )
    
 }

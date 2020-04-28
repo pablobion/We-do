@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import PageHeader from '../template/pageHeader'
 import WedoForm from './wedoForm'
 import WedoList from './wedoList'
 import axios from 'axios'
@@ -11,7 +10,11 @@ export default class Wedo extends Component {
 
     constructor(props){
         super(props)
-        this.state = {description: '', list: []}
+        this.state = {
+            description: '', 
+            list: [],
+            idcard: this.props.idcard
+        }
         this.handleChange = this.handleChange.bind(this)
         this.handleAdd = this.handleAdd.bind(this)
         this.handleRemove = this.handleRemove.bind(this)
@@ -24,8 +27,9 @@ export default class Wedo extends Component {
 
     refresh(description = ''){
         const search = description ? `&description__regex=/${description}/` : ''
-        axios.get(`${URL}?sort-=createAt${search}`)
+        axios.get(`${URL}?idcard=${this.state.idcard}&sort-=createAt${search}`)
             .then(resp => this.setState({...this.state, description, list: resp.data}))
+            console.log(this.state.list)
     }
 
     handleSearch(){
@@ -34,12 +38,12 @@ export default class Wedo extends Component {
 
     handleChange(e){
         this.setState({...this.state, description: e.target.value})
-
     }
 
     handleAdd(){
         const description = this.state.description
-        axios.post(URL, {description})
+        const idcard = this.state.idcard
+        axios.post(URL, {description, idcard})
             .then(res => this.refresh())
     }
 
@@ -65,8 +69,9 @@ export default class Wedo extends Component {
     render(){
         return (
             <div>
-                <PageHeader name='Wedos' small='Cadastre suas tarefas'></PageHeader>
-                <WedoForm description={this.state.description} 
+                <WedoForm 
+                    description={this.state.description} 
+                    idcard={this.state.idcard}
                     handleChange={this.handleChange}
                     handleAdd={this.handleAdd} 
                     handleSearch={this.handleSearch} 
