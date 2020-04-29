@@ -1,0 +1,31 @@
+
+
+.infos{
+    display: flex;   
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.title {
+    width: 90%;
+    display: flex;   
+    justify-content: center;
+}
+
+.model {
+    width: inherit;
+    height: 40px;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+
+
+
+
+.wedo {
+    margin-top: 100px;
+}
+
+
